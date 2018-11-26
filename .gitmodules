@@ -1,0 +1,3 @@
+[submodule "processing-docs"]
+	path = processing-docs
+	url = https://github.com/processing/processing-docs.git
