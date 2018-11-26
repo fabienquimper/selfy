@@ -1,0 +1,6 @@
+[submodule "processing-docs"]
+	path = processing-docs
+	url = https://github.com/processing/processing-docs.git
+[submodule "opencv-processing"]
+	path = opencv-processing
+	url = https://github.com/atduskgreg/opencv-processing.git
