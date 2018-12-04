@@ -44,21 +44,25 @@ void draw() {
   Rectangle[] faces = opencv.detect();
   println(faces.length);
 
+
+    OscMessage newMessage = new OscMessage("mouseX position"); 
+
   for (int i = 0; i < faces.length; i++) {
    // println(faces[i].x + "," + faces[i].y);
     rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height);
     
     println("x*y=" + faces[i].x + " "+ faces[i].y + "  w/h=" + faces[i].width + " "+ faces[i].height);
-    
-    OscMessage newMessage = new OscMessage("mouseX position");  
-    //newMessage.add(faces[i].x + " " + faces[i].y + " " + faces[i].width + " " + faces[i].height);
+    //newMessage.add(faces[i].x + " " + faces[i].y + " " + faces[i].width + " " + faces[i].height);  
+   // newMessage.add(i);
     newMessage.add(faces[i].x);
     newMessage.add(faces[i].y);   
     newMessage.add(faces[i].width);
     newMessage.add(faces[i].height);   
     //varName(faces[i].x);
-    oscP5.send(newMessage, myRemoteLocation);
+    //println(newMessage);
   }
+  
+    oscP5.send(newMessage, myRemoteLocation);
 }
 
 public void varName(int _varName) {
