@@ -51,8 +51,12 @@ void draw() {
     println("x*y=" + faces[i].x + " "+ faces[i].y + "  w/h=" + faces[i].width + " "+ faces[i].height);
     
     OscMessage newMessage = new OscMessage("mouseX position");  
-    newMessage.add(faces[i].x + " " + faces[i].y + " " + faces[i].width + " " + faces[i].height);
-    varName(faces[i].x);
+    //newMessage.add(faces[i].x + " " + faces[i].y + " " + faces[i].width + " " + faces[i].height);
+    newMessage.add(faces[i].x);
+    newMessage.add(faces[i].y);   
+    newMessage.add(faces[i].width);
+    newMessage.add(faces[i].height);   
+    //varName(faces[i].x);
     oscP5.send(newMessage, myRemoteLocation);
   }
 }
