@@ -60,7 +60,10 @@ void setup() {
   oscP5.plug(this, "varName", "keyword");
   
   
-  port = new Serial(this, "/dev/tty.usbserial-1410", 115200);
+  printArray(Serial.list());
+  
+  //port = new Serial(this, "/dev/tty.usbserial-1410", 115200);
+  port = new Serial(this, "/dev/ttyUSB0", 115200);
 
   // Init Controls
   cp5 = new ControlP5(this);  // Slider for threshold
