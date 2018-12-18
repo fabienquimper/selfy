@@ -115,8 +115,13 @@ void draw() {
     }
     
     
-      String toto = "s" + (int)faces[i].x;
-    port.write(toto);
+      String totox = "d" + (180-(int)faces[i].x);
+    port.write(totox);
+    
+    
+      String totoy = "s" + (int)faces[i].y;
+    port.write(totoy);
+    
   }
   
   oscP5.send(newMessage, myRemoteLocation);
