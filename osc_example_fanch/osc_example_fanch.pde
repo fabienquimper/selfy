@@ -19,11 +19,9 @@ NetAddress myRemoteLocation;
 //0: NO TRANSFORMATION
 //1: IMAGE REPLACEMENT
 //2: VIDEO REPLACEMENT
-int faceTransformation = 1;
+int faceTransformation = 0;
 // Control vars
 ControlP5 cp5;
-int buttonColor;
-int buttonBgColor;
 
 PFont  font;
 int varName;
@@ -34,6 +32,7 @@ void setup() {
   face = loadImage("face.png");
   faceVid = new Movie(this, "face.mov");
   faceVid.loop();
+  faceVid.volume(0);
   faceVid.play();  
   
   size(640, 480);
@@ -60,18 +59,10 @@ void setup() {
      .setPosition(10,10)
      .setRange(0,2)
      ;
-  //faceTransformation = cp5.getController("faceTransformation");
-   //cp5.getController("faceTransformation").setLock(true);
-  //cp5.getController("faceTransformation").setColorBackground(color(buttonBgColor));
-  //cp5.getController("faceTransformation").setColorForeground(color(buttonColor));
-  
-  // Store the default background color, we gonna need it later
-  //buttonColor = cp5.getController("faceTransformation").getColor().getForeground();
-  //buttonBgColor = cp5.getController("faceTransformation").getColor().getBackground();
 }
 
 void draw() {
-  //scale(2);
+  scale(2);
   opencv.loadImage(video);
   
   // Face video
