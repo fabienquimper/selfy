@@ -44,7 +44,14 @@ void setup() {
   
   size(640, 480);
   
+  
+  String[] cameras = Capture.list();
+  
+  
   video = new Capture(this, 640/2, 480/2);
+//  video = new Capture(this, 640/2, 480/2, Capture.list()[1]);
+  //video = new Capture(this, cameras[0]);
+  
   opencv = new OpenCV(this, 640/2, 480/2);
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
   video.start();
@@ -55,7 +62,7 @@ void setup() {
   myRemoteLocation = new NetAddress("127.0.0.1", 57120);  //  speak to
 //  myRemoteLocation = new NetAddress("79.90.218.54", 57120);  //  speak to
   //myRemoteLocation = new NetAddress("79.90.218.54", 57120);  //  speak to
- // myRemoteLocation = new NetAddress("192.168.1.43", 57120);  //  speak to  
+  //myRemoteLocation = new NetAddress("192.168.1.43", 57120);  //  speak to  
   // The method plug take 3 arguments. Wait for the <keyword>
   oscP5.plug(this, "varName", "keyword");
   
@@ -114,12 +121,15 @@ void draw() {
       image(faceVid, faces[i].x, faces[i].y, faces[i].width, faces[i].height);
     }
     
+    int angleX = (180-(int)faces[i].x);
+    int angleY = (int)faces[i].y;
+    println("angle x / angle y = " + angleX + "   " + angleY);
     
-      String totox = "d" + (180-(int)faces[i].x);
+      String totox = "d" + angleX/2;
     port.write(totox);
     
     
-      String totoy = "s" + (int)faces[i].y;
+      String totoy = "s" + (60+angleY/2);
     port.write(totoy);
     
   }
