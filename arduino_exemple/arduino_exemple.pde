@@ -37,10 +37,10 @@ Movie faceVid;
 
 void setup() {
   face = loadImage("face.png");
-  faceVid = new Movie(this, "face.mov");
-  faceVid.loop();
-  faceVid.volume(0);
-  faceVid.play();  
+ // faceVid = new Movie(this, "face.mov");
+//  faceVid.loop();
+//  faceVid.volume(0);
+//  faceVid.play();  
   
   size(640, 480);
   
